@@ -1,4 +1,5 @@
 
+[![Build Status](https://travis-ci.org/Nitr4x/linuxprivchecker.svg?branch=master)](https://travis-ci.org/Nitr4x/linuxprivchecker)
 
 <h5>linuxprivchecker.py -- a Linux Privilege Escalation Check Script</h5>
 [Author]: Mike Czumak (T_v3rn1x) -- @SecuritySift
