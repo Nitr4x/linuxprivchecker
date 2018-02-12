@@ -194,22 +194,22 @@ procdict = {} # dictionary to hold the processes running as super users
 for proc in procs: # loop through each process
     relatedpkgs = [] # list to hold the packages related to a process
     try:
-	for user in supusers: # loop through the known super users
-	    if (user != "") and (user in proc): # if the process is being run by a super user
-        	procname = proc.split(" ")[4] # grab the process name
-		if "/" in procname:
-			splitname = procname.split("/")
-			procname = splitname[len(splitname)-1]
+        for user in supusers: # loop through the known super users
+            if (user != "") and (user in proc): # if the process is being run by a super user
+                procname = proc.split(" ")[4] # grab the process name
+            if "/" in procname:
+                splitname = procname.split("/")
+                procname = splitname[len(splitname)-1]
         	for pkg in pkgs: # loop through the packages
-		    if not len(procname) < 3: # name too short to get reliable package results
-	    	        if procname in pkg:
-			    if procname in procdict:
-			        relatedpkgs = procdict[proc] # if already in the dict, grab its pkg list
-			    if pkg not in relatedpkgs:
-			        relatedpkgs.append(pkg) # add pkg to the list
-                procdict[proc]=relatedpkgs # add any found related packages to the process dictionary entry
+                if not len(procname) < 3: # name too short to get reliable package results
+                    if procname in pkg:
+                        if procname in procdict:
+                            relatedpkgs = procdict[proc] # if already in the dict, grab its pkg list
+                        if pkg not in relatedpkgs:
+                            relatedpkgs.append(pkg) # add pkg to the list
+            procdict[proc]=relatedpkgs # add any found related packages to the process dictionary entry
     except:
-	pass
+        pass
 
 for key in procdict:
     print("    " + key) # print the process name
