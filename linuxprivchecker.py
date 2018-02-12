@@ -329,33 +329,33 @@ for sploit in sploits:
     sploitout = sploit + " || " + "http://www.exploit-db.com/exploits/" + sploits[sploit]["exploitdb"] + " || " + "Language=" + sploits[sploit]["lang"]
     # first check for kernell applicability
     if (version >= sploits[sploit]["minver"]) and (version <= sploits[sploit]["maxver"]):
-	# next check language applicability
-	if (sploits[sploit]["lang"] == "c") and (("gcc" in str(langs)) or ("cc" in str(langs))):
-	    lang = 1 # language found, increase applicability score
-	elif sploits[sploit]["lang"] == "sh":
-	    lang = 1 # language found, increase applicability score
-	elif (sploits[sploit]["lang"] in str(langs)):
-	    lang = 1 # language found, increase applicability score
-	if lang == 0:
-	    sploitout = sploitout + "**" # added mark if language not detected on system
-	# next check keyword matches to determine if some sploits have a higher probability of success
-	for loc in sploits[sploit]["keywords"]["loc"]:
-	    if loc == "proc":
-		for proc in procs:
-		    if keyword in proc:
-			highprob.append(sploitout) # if sploit is associated with a running process consider it a higher probability/applicability
-			break
-			break
-	    elif loc == "os":
-		if (keyword in os) or (keyword in kernel):
-		    highprob.append(sploitout) # if sploit is specifically applicable to this OS consider it a higher probability/applicability
-		    break
-	    elif loc == "mnt":
-		if keyword in mount:
-		    highprob.append(sploitout) # if sploit is specifically applicable to a mounted file system consider it a higher probability/applicability
-		    break
-	    else:
-		avgprob.append(sploitout) # otherwise, consider average probability/applicability based only on kernel version
+        # next check language applicability
+        if (sploits[sploit]["lang"] == "c") and (("gcc" in str(langs)) or ("cc" in str(langs))):
+            lang = 1 # language found, increase applicability score
+        elif sploits[sploit]["lang"] == "sh":
+            lang = 1 # language found, increase applicability score
+        elif (sploits[sploit]["lang"] in str(langs)):
+            lang = 1 # language found, increase applicability score
+        if lang == 0:
+            sploitout = sploitout + "**" # added mark if language not detected on system
+        # next check keyword matches to determine if some sploits have a higher probability of success
+        for loc in sploits[sploit]["keywords"]["loc"]:
+            if loc == "proc":
+                for proc in procs:
+                    if keyword in proc:
+                    highprob.append(sploitout) # if sploit is associated with a running process consider it a higher probability/applicability
+                    break
+                    break
+            elif loc == "os":
+                if (keyword in os) or (keyword in kernel):
+                    highprob.append(sploitout) # if sploit is specifically applicable to this OS consider it a higher probability/applicability
+                    break
+            elif loc == "mnt":
+                if keyword in mount:
+                    highprob.append(sploitout) # if sploit is specifically applicable to a mounted file system consider it a higher probability/applicability
+                    break
+            else:
+                avgprob.append(sploitout) # otherwise, consider average probability/applicability based only on kernel version
 
 print("    Note: Exploits relying on a compile/scripting language not detected on this system are marked with a '**' but should still be tested!")
 print()
