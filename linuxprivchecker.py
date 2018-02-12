@@ -219,7 +219,7 @@ for key in procdict:
             for entry in procdict[key]:
                 print("            " + entry) # print each related package
     except:
-	   pass
+        pass
 
 # EXPLOIT ENUMERATION
 
