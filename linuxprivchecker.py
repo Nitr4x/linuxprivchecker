@@ -236,8 +236,8 @@ escapeCmd = {"vi":[":!bash", ":set shell=/bin/bash:shell"], "awk":["awk 'BEGIN {
 for cmd in escapeCmd:
     for result in devTools["TOOLS"]["results"]:
         if cmd in result:
-	    for item in escapeCmd[cmd]:
-	        print("    " + cmd + "-->\t" + item)
+            for item in escapeCmd[cmd]:
+                print("    " + cmd + "-->\t" + item)
 print()
 print("[*] FINDING RELEVENT PRIVILEGE ESCALATION EXPLOITS...\n")
 
