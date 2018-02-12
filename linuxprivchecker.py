@@ -47,7 +47,7 @@ def execCmd(cmdDict):
         cmd = cmdDict[item]["cmd"]
         if compatmode == 0: # newer version of python, use preferred subprocess
             out, error = sub.Popen([cmd], stdout=sub.PIPE, stderr=sub.PIPE, shell=True).communicate()
-            results = out.encode().split('\n')
+            results = str(out).split('\n')
         else: # older version of python, use os.popen
             echo_stdout = os.popen(cmd, 'r')
             results = echo_stdout.read().split('\n')
