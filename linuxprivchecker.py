@@ -200,7 +200,7 @@ for proc in procs: # loop through each process
             if "/" in procname:
                 splitname = procname.split("/")
                 procname = splitname[len(splitname)-1]
-        	for pkg in pkgs: # loop through the packages
+            for pkg in pkgs: # loop through the packages
                 if not len(procname) < 3: # name too short to get reliable package results
                     if procname in pkg:
                         if procname in procdict:
