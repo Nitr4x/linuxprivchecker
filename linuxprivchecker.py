@@ -343,9 +343,9 @@ for sploit in sploits:
             if loc == "proc":
                 for proc in procs:
                     if keyword in proc:
-                    highprob.append(sploitout) # if sploit is associated with a running process consider it a higher probability/applicability
-                    break
-                    break
+                        highprob.append(sploitout) # if sploit is associated with a running process consider it a higher probability/applicability
+                        break
+                        break
             elif loc == "os":
                 if (keyword in os) or (keyword in kernel):
                     highprob.append(sploitout) # if sploit is specifically applicable to this OS consider it a higher probability/applicability
