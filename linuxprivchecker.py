@@ -54,7 +54,7 @@ def execCmd(cmdDict):
         cmdDict[item]["results"]=results
     return cmdDict
 
-# print results for each previously executed command, no return value
+# print results for each previously executed command, no return value.
 def printResults(cmdDict):
     for item in cmdDict:
 	msg = cmdDict[item]["msg"]
