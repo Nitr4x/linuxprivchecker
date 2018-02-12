@@ -26,3 +26,14 @@ worth anything anyway :)
 [Author]: Nitrax -- @lokisec.fr
 
 * Python compatibility
+
+    * 2.6
+    * 2.7
+    * 3.3
+    * 3.4
+    * 3.5
+    * 3.5-dev
+    * 3.6
+    * 3.6-dev
+    * 3.7-dev
+    * nightly
