@@ -57,13 +57,13 @@ def execCmd(cmdDict):
 # print results for each previously executed command, no return value.
 def printResults(cmdDict):
     for item in cmdDict:
-	msg = cmdDict[item]["msg"]
-	results = cmdDict[item]["results"]
+        msg = cmdDict[item]["msg"]
+        results = cmdDict[item]["results"]
         print("[+] " + msg)
         for result in results:
-	    if result.strip() != "":
-	        print("    " + result.strip())
-	print()
+            if result.strip() != "":
+                print("    " + result.strip())
+        print()
     return
 
 def writeResults(msg, results):
